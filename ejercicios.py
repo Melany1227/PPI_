@@ -6,7 +6,7 @@ from PyQt5.QtGui import QPixmap, QFont, QIcon
 from PyQt5.QtWidgets import QMainWindow, QDesktopWidget, QLabel, QFormLayout, QApplication, QLineEdit, QDialog, \
     QDialogButtonBox, QVBoxLayout, QPushButton, QWidget, QButtonGroup, QScrollArea, QGridLayout
 
-from lista_ejercicio import Ventana7_1
+from lista_ejercicio import Ventana7_1, Ventana7_2, Ventana7_3, Ventana7_4
 
 
 class Ventana5(QMainWindow):
@@ -70,11 +70,14 @@ class Ventana5(QMainWindow):
 
         self.contenedora = QWidget()
 
+        self.scrollArea.setMinimumWidth(120)
+        self.scrollArea.setMinimumHeight(400)
+
         self.cuadricula = QGridLayout(self.contenedora)
         self.scrollArea.setWidget(self.contenedora)
         self.vertical.addWidget(self.scrollArea)
 
-        self.numeroElementos = 4
+        self.numeroElementos = 11
 
         self.contador = 0
 
@@ -88,9 +91,12 @@ class Ventana5(QMainWindow):
 
         self.botones.setExclusive(False)
 
-        self.listamusculos = ["Pierna", "Abdomen", "Biceps", "Pecho"]
-        self.imagenesmusculos = ['imagenes/pierna.png','imagenes/abdomen.png', 'imagenes/biceps.png', 'imagenes/pecho.png']
-
+        self.listamusculos = ["Cuádriceps", "Glúteo", "Isquiotibiales", "Pantorrilla", "Espalda", "Biceps", "Tríceps",
+                              "Antebrazo", "Pecho", "Hombro", "Abdomen"]
+        self.imagenesmusculos = ['imagenes/cuadricep.png', 'imagenes/gluteo.png', 'imagenes/isquio.png',
+                                 'imagenes/pantorrilla.png','imagenes/espalda.png', 'imagenes/biceps.png',
+                                 'imagenes/triceps.png','imagenes/antebrazo.png', 'imagenes/pecho.png',
+                                 'imagenes/hombro.png', 'imagenes/abdomen.png']
 
 
         for fila in range(1, self.numeroFilas + 1):
@@ -113,11 +119,6 @@ class Ventana5(QMainWindow):
 
                     self.verticalCuadricula.addStretch()
 
-                    self.labelNombre = QLabel('Ejercicio ' + str(self.contador + 1))
-
-                    self.labelNombre.setStyleSheet("color: white; font-size: 15px; font-family: Poppins;")
-
-                    self.verticalCuadricula.addWidget(self.labelNombre)
 
                     self.verticalCuadricula.addStretch()
 
@@ -146,11 +147,41 @@ class Ventana5(QMainWindow):
     def metodo_accion_boton(self, idBoton):
         print(idBoton)
         if (idBoton == 1):
-            self.lista_ejercicio = Ventana7_1(self)
-            self.lista_ejercicio.show()
-            self.hide()
+            self.lista_ejercicios = Ventana7_1(self)
+            self.lista_ejercicios.show()
+        if (idBoton == 2):
+            self.lista_ejercicios = Ventana7_2(self)
+            self.lista_ejercicios.show()
+        if (idBoton == 3):
+            self.lista_ejercicios = Ventana7_3(self)
+            self.lista_ejercicios.show()
+        if (idBoton == 4):
+            self.lista_ejercicios = Ventana7_4(self)
+            self.lista_ejercicios.show()
 
+    '''
+       if (idBoton == 5):
+           self.lista_ejercicios = Ventana7_5(self)
+           self.lista_ejercicios.show()
+       if (idBoton == 6):
+           self.lista_ejercicios = Ventana7_6(self)
+           self.lista_ejercicios.show()
+       if (idBoton == 7):
+           self.lista_ejercicios = Ventana7_7(self)
+           self.lista_ejercicios.show()
+       if (idBoton == 8):
+           self.lista_ejercicios = Ventana7_8(self)
+           self.lista_ejercicios.show()
+       if (idBoton == 9):
+           self.lista_ejercicios = Ventana7_9(self)
+           self.lista_ejercicios.show()
+       if (idBoton == 10):
+           self.lista_ejercicios = Ventana7_10(self)
+           self.lista_ejercicios.show()
+       if (idBoton == 11):
+           self.lista_ejercicios = Ventana7_11(self)
+           self.lista_ejercicios.show()
+      '''
     def volver(self):
         self.hide()
         self.ventanaAnterior.show()
-
