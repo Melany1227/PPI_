@@ -112,9 +112,6 @@ class Ventana6 (QMainWindow):
 
 
 
-
-
-
     def volver(self):
         self.hide()
         self.ventanaAnterior.show()
