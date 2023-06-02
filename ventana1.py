@@ -104,7 +104,7 @@ class LoginWindow(QMainWindow):
         username = self.username_edit.text()
         password = self.password_edit.text()
 
-        if username == 'q' and password == 'q':
+        if username == '' and password == '':
             self.interfaz_bienvenido = Ventana2(self)
             self.interfaz_bienvenido.show()
             self.hide()
