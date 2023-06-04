@@ -6,12 +6,15 @@ from PyQt5.QtGui import QFont, QPixmap, QIcon
 from PyQt5.QtWidgets import QMainWindow, QDesktopWidget, QWidget, QVBoxLayout, QTabWidget, QApplication, QLabel, \
     QGridLayout, QPushButton
 from interfaz_principal import Ventana3
+from users import Usuarios
+
 
 class Ventana2 (QMainWindow):
 
-    def __init__(self, anterior):
+    def __init__(self, anterior, nombre_usuario):
         super(Ventana2, self).__init__(anterior)
 
+        self.nombreUsuario = nombre_usuario
         self.setWindowTitle("HELP TRAINING")
         self.setWindowIcon(QIcon("imagenes/img_1.png"))
         self.setStyleSheet("background-color: black;")
@@ -41,7 +44,9 @@ class Ventana2 (QMainWindow):
 
         self.cuadricula.addWidget(QLabel(""), 0, 2)
 
-        self.label = QLabel("¡Bienvenido!")
+        self.label = QLabel("¡Bienvenido! " + self.nombreUsuario)
+
+
         self.label.setAlignment(Qt.AlignCenter)
         self.label.setStyleSheet("background-color: black; color: white; font-size: 30px; font-family: Poppins; font-weight: bold;")
         self.cuadricula.addWidget(self.label, 0, 1)
@@ -82,6 +87,36 @@ class Ventana2 (QMainWindow):
         self.cuadricula.setAlignment(Qt.AlignCenter)
 
         self.cuadricula.addWidget(self.botoninicio, 3, 1)
+        self.file = open('datos/users.txt', 'rb')
+        usuario = []
+
+        while self.file:
+            linea = self.file.readline().decode('UTF-8')
+            lista = linea.split(";")
+            if linea == '':
+                break
+
+            u = Usuarios(
+                lista[0],
+                lista[1],
+                lista[2],
+                lista[3],
+            )
+            usuario.append(u)
+        self.file.close()
+
+        # Dentro de la clase Ventana2, después de cargar los datos de usuarios
+        with open("datos/users.txt", "r") as file:
+            for line in file:
+                # Separar los campos de la línea por punto y coma (;)
+                lista = line.strip().split(";")
+                if lista[1] == self.nombreUsuario:
+                    # Aquí puedes acceder a los datos adicionales del usuario
+                    nombre = lista[3]
+                    edad = lista[4]
+                    # Hacer algo con los datos obtenidos
+                    print(nombre, edad)
+                    break
 
     def comenzar(self):
         self.interfaz_principal = Ventana3(self)

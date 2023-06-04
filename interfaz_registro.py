@@ -143,7 +143,7 @@ class Ventana4 (QMainWindow):
         self.botonLimpiar.setFixedWidth(250)
         self.botonLimpiar.setStyleSheet("color: white; font-size: 18px; font-family: Poppins; padding: 8px; border-radius:10px; "
             "border: 1px solid #FFFFFF; ")
-        self.cuadricula.addWidget(self.botonLimpiar, 7, 0)
+        self.cuadricula.addWidget(self.botonLimpiar, 7, 1)
         self.botonLimpiar.clicked.connect(self.limpiar)
 
         self.botonVolver = QPushButton("Volver")
@@ -152,7 +152,7 @@ class Ventana4 (QMainWindow):
             "color: white; font-size: 18px; font-family: Poppins; padding: 8px; border-radius:10px; "
             "border: 1px solid #FFFFFF; ")
         self.botonVolver.clicked.connect(self.volver)
-        self.cuadricula.addWidget(self.botonVolver, 8, 0)
+        self.cuadricula.addWidget(self.botonVolver, 7, 0)
 
         self.datosCorrectos = True
     def volver(self):
@@ -160,11 +160,19 @@ class Ventana4 (QMainWindow):
         self.ventanaAnterior.show()
 
     def limpiar(self):
-        self.fullname_edit.setText('')
-        self.user_edit.setText('')
-        self.password_edit.setText('')
-        self.password3_edit.setText('')
-        self.email_edit.setText('')
+        if (
+                self.fullname_edit.text() == ''
+                or self.user_edit.text() == ''
+                or self.password_edit.text() == ''
+                or self.password2_edit.text() == ''
+                or self.email_edit.text() == ''
+
+        ):
+            self.fullname_edit.setText('')
+            self.user_edit.setText('')
+            self.password_edit.setText('')
+            self.password3_edit.setText('')
+            self.email_edit.setText('')
 
 
     def registrar(self):
@@ -224,6 +232,7 @@ class Ventana4 (QMainWindow):
 
             # Hacemos que la ventana de dialogo se vea:
             self.ventanaDialogo.exec_()
+            self.ventanaAnterior.show()
 
             self.fullname_edit.setText('')
             self.user_edit.setText('')

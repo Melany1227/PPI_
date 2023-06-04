@@ -1,6 +1,5 @@
 import sys
 
-
 from PyQt5 import QtWidgets, QtCore, QtGui
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QPixmap, QFont, QFontDatabase, QIcon
@@ -109,33 +108,6 @@ class LoginWindow(QMainWindow):
 
         self.datosCorrectos = True
 
-        if (self.user_edit.text() == '' or self.password_edit.text() == ''):
-            self.datosCorrectos = False
-            self.ventanaDialogo = QDialog()
-
-            self.ventanaDialogo.resize(300, 150)
-
-            self.botonAceptar = QDialogButtonBox.Ok
-            self.opcionesBotones = QDialogButtonBox(self.botonAceptar)
-            self.opcionesBotones.accepted.connect(self.ventanaDialogo.accept)
-
-            self.ventanaDialogo.setWindowTitle("HELP TRAINING")
-            self.ventanaDialogo.setWindowIcon(QtGui.QIcon("imagenes/img_1.png"))
-
-            self.ventanaDialogo.setWindowModality(Qt.ApplicationModal)
-
-            self.vertical = QVBoxLayout()
-            self.mensaje = QLabel("")
-            self.mensaje.setStyleSheet("background-color: #000000; color: #FFFFFF; font-size: 18px; "
-                                       "font-family: Poppins; padding: 10px; border-radius:10px;")
-
-            self.vertical.addWidget(self.mensaje)
-            self.vertical.addWidget(self.opcionesBotones)
-
-            self.ventanaDialogo.setLayout(self.vertical)
-            self.mensaje.setText("Contraseña y/o usuario incorrecto, por favor intente de nuevo.")
-            self.ventanaDialogo.exec_()
-
         if self.datosCorrectos:
 
             # Abrimos el archivo en modo agregar escribiendo datos en binario.
@@ -162,11 +134,38 @@ class LoginWindow(QMainWindow):
             for u in usuario:
                 if u.user_edit == self.user_edit.text() and u.password_edit == (self.password_edit.text()):
                     self.hide()
-                    self.interfaz_bienvenido = Ventana2(self)
+                    self.interfaz_bienvenido = Ventana2(self, self.user_edit.text())
                     self.interfaz_bienvenido.show()
 
                     existeDocumento = True
                     break
+
+        if (self.user_edit.text() == '' or self.password_edit.text() == ''):
+            self.datosCorrectos = False
+            self.ventanaDialogo = QDialog()
+
+            self.ventanaDialogo.resize(300, 150)
+
+            self.botonAceptar = QDialogButtonBox.Ok
+            self.opcionesBotones = QDialogButtonBox(self.botonAceptar)
+            self.opcionesBotones.accepted.connect(self.ventanaDialogo.accept)
+
+            self.ventanaDialogo.setWindowTitle("HELP TRAINING")
+            self.ventanaDialogo.setWindowIcon(QtGui.QIcon("imagenes/img_1.png"))
+
+            self.ventanaDialogo.setWindowModality(Qt.ApplicationModal)
+
+            self.vertical = QVBoxLayout()
+            self.mensaje = QLabel("")
+            self.mensaje.setStyleSheet("background-color: #000000; color: #FFFFFF; font-size: 18px; "
+                                       "font-family: Poppins; padding: 10px; border-radius:10px;")
+
+            self.vertical.addWidget(self.mensaje)
+            self.vertical.addWidget(self.opcionesBotones)
+
+            self.ventanaDialogo.setLayout(self.vertical)
+            self.mensaje.setText("Porfavor introduzca usuario y/o contraseña.")
+            self.ventanaDialogo.exec_()
 
         if (not existeDocumento):
             self.ventanaDialogo = QDialog()

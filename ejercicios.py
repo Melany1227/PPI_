@@ -6,7 +6,9 @@ from PyQt5.QtGui import QPixmap, QFont, QIcon
 from PyQt5.QtWidgets import QMainWindow, QDesktopWidget, QLabel, QFormLayout, QApplication, QLineEdit, QDialog, \
     QDialogButtonBox, QVBoxLayout, QPushButton, QWidget, QButtonGroup, QScrollArea, QGridLayout
 
-from lista_ejercicio import Ventana7_1, Ventana7_2, Ventana7_3, Ventana7_4
+
+from lista_ejercicio import Ventana7_1, Ventana7_2, Ventana7_3, Ventana7_4, Ventana7_5, Ventana7_6, Ventana7_7, \
+    Ventana7_8, Ventana7_9, Ventana7_10, Ventana7_11
 
 
 class Ventana5(QMainWindow):
@@ -158,30 +160,27 @@ class Ventana5(QMainWindow):
         if (idBoton == 4):
             self.lista_ejercicios = Ventana7_4(self)
             self.lista_ejercicios.show()
-
-    '''
-       if (idBoton == 5):
-           self.lista_ejercicios = Ventana7_5(self)
-           self.lista_ejercicios.show()
-       if (idBoton == 6):
-           self.lista_ejercicios = Ventana7_6(self)
-           self.lista_ejercicios.show()
-       if (idBoton == 7):
-           self.lista_ejercicios = Ventana7_7(self)
-           self.lista_ejercicios.show()
-       if (idBoton == 8):
-           self.lista_ejercicios = Ventana7_8(self)
-           self.lista_ejercicios.show()
-       if (idBoton == 9):
-           self.lista_ejercicios = Ventana7_9(self)
-           self.lista_ejercicios.show()
-       if (idBoton == 10):
-           self.lista_ejercicios = Ventana7_10(self)
-           self.lista_ejercicios.show()
-       if (idBoton == 11):
-           self.lista_ejercicios = Ventana7_11(self)
-           self.lista_ejercicios.show()
-      '''
+        if (idBoton == 5):
+            self.lista_ejercicios = Ventana7_5(self)
+            self.lista_ejercicios.show()
+        if (idBoton == 6):
+            self.lista_ejercicios = Ventana7_6(self)
+            self.lista_ejercicios.show()
+        if (idBoton == 7):
+            self.lista_ejercicios = Ventana7_7(self)
+            self.lista_ejercicios.show()
+        if (idBoton == 8):
+            self.lista_ejercicios = Ventana7_8(self)
+            self.lista_ejercicios.show()
+        if (idBoton == 9):
+            self.lista_ejercicios = Ventana7_9(self)
+            self.lista_ejercicios.show()
+        if (idBoton == 10):
+            self.lista_ejercicios = Ventana7_10(self)
+            self.lista_ejercicios.show()
+        if (idBoton == 11):
+            self.lista_ejercicios = Ventana7_11(self)
+            self.lista_ejercicios.show()
     def volver(self):
         self.hide()
         self.ventanaAnterior.show()
