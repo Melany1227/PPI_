@@ -218,7 +218,7 @@ class Ventana4 (QMainWindow):
 
         self.space = QtWidgets.QPushButton('')
         self.space.setStyleSheet(
-            "color: white; font-size: 20px; font-family: Poppins;")
+            "color: white; font-size: 5px; font-family: Poppins;")
         self.cuadricula.addWidget(self.space, 6, 0)
 
 
