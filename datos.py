@@ -78,7 +78,7 @@ class Ventana6 (QMainWindow):
              "color: white; font-size: 18px; font-family: Poppins; padding: 8px; border-radius:10px; "
             "border: 1px solid #FFFFFF; ")
         self.botonVolver.clicked.connect(self.volver)
-        self.cuadricula.addWidget(self.botonVolver, 5, 0)
+        self.cuadricula.addWidget(self.botonVolver, 6, 0)
         # method for components
 
     def UiComponents(self):
