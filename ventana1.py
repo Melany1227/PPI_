@@ -103,8 +103,6 @@ class LoginWindow(QMainWindow):
         self.cuadricula.addWidget(self.registro_button, 4, 0, 2, 4)
 
 
-
-
     def login(self):
 
         self.datosCorrectos = True
@@ -153,6 +151,13 @@ class LoginWindow(QMainWindow):
                     lista[1],
                     lista[2],
                     lista[3],
+                    lista[4],
+                    lista[5],
+                    lista[6],
+                    lista[7],
+                    lista[8],
+                    lista[9]
+
                 )
                 usuario.append(u)
             self.file.close()
