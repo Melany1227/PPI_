@@ -378,10 +378,8 @@ class Ventana4 (QMainWindow):
             self.imc = float(self.peso / ((self.altura / 100) ** 2))
 
             if (self.imc < 18.5):
-                self.msg = (f"Su indice de masa corporal es: {self.imc:.2f} \nBajo peso")
-                self.mensaje.setText(self.msg)
+                self.mensaje.setText(f"Su indice de masa corporal es: {self.imc:.2f} \nBajo peso")
                 self.ventanaDialogo.exec_()
-
             if (self.imc >= 18.5 and self.imc <= 24.9):
                 self.mensaje.setText(f"Su indice de masa corporal es: {self.imc:.2f}\nPeso normal")
                 self.ventanaDialogo.exec_()
