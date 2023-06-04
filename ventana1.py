@@ -1,6 +1,4 @@
 import sys
-
-
 from PyQt5 import QtWidgets, QtCore, QtGui
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QPixmap, QFont, QFontDatabase, QIcon
@@ -69,13 +67,10 @@ class LoginWindow(QMainWindow):
                                         "border: 1px solid #FFFFFF; ")
         self.cuadricula.addWidget(self.user_edit, 1, 2)
 
-
         self.password_label = QtWidgets.QLabel('Contraseña')
         self.password_label.setAlignment(Qt.AlignCenter)
         self.password_label.setStyleSheet("color: white; font-size: 20px; font-family: Poppins; ")
         self.cuadricula.addWidget(self.password_label, 2, 0)
-
-
 
         self.imgPwd = QLabel(self.password_label)
         self.imgPwd.setPixmap(QPixmap("imagenes/contrasena.png").scaled(35, 35, 35, 35))
