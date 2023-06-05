@@ -6,8 +6,7 @@ from PyQt5.QtGui import QFont, QPixmap, QIcon
 from PyQt5.QtWidgets import QMainWindow, QDesktopWidget, QWidget, QVBoxLayout, QTabWidget, QApplication, QLabel, \
     QGridLayout, QPushButton
 from interfaz_principal import Ventana3
-import time
-
+from datos import Ventana6
 
 class Ventana2 (QMainWindow):
 
@@ -43,7 +42,7 @@ class Ventana2 (QMainWindow):
 
         self.cuadricula.addWidget(QLabel(""), 0, 2)
 
-        self.label = QLabel("¡Bienvenido!")
+        self.label = QLabel("¡Bienvenido !")
         self.label.setAlignment(Qt.AlignCenter)
         self.label.setStyleSheet("background-color: black; color: white; font-size: 30px; font-family: Poppins; font-weight: bold;")
         self.cuadricula.addWidget(self.label, 0, 1)
@@ -73,7 +72,6 @@ class Ventana2 (QMainWindow):
         self.imagen.setFixedSize(300, 236)
         self.imagen.setPixmap(self.pixmap)
         self.cuadricula.addWidget(self.imagen, 1, 1)
-
 
 
         self.botoninicio = QPushButton("Comenzar")
