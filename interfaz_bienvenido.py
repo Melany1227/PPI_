@@ -6,6 +6,8 @@ from PyQt5.QtGui import QFont, QPixmap, QIcon
 from PyQt5.QtWidgets import QMainWindow, QDesktopWidget, QWidget, QVBoxLayout, QTabWidget, QApplication, QLabel, \
     QGridLayout, QPushButton
 from interfaz_principal import Ventana3
+import time
+
 
 class Ventana2 (QMainWindow):
 
@@ -51,10 +53,10 @@ class Ventana2 (QMainWindow):
             "    Viene de una voluntad indomable. \n"
             "                                -Mahatma Gandhi",
             "  No puedes poner un limite a nada. \n"
-            "mientras mas sueñas, mas lejos llegas \n "
+            "mientras mas sueñas, mas lejos llegas. \n "
             "                                -Michael Phelps",
             "La motivacion es lo que te pone en marcha,\n"
-            "  y el habito es lo que hace que sigas. \n "
+            "  y el hábito es lo que hace que sigas. \n "
             "                                 -Robert Collier",
             "Lo que no te mata, te hace más fuerte. \n"
             "                                 -Friedrich Nietzsche"

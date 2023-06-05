@@ -7,6 +7,7 @@ from PyQt5.QtWidgets import QMainWindow, QDesktopWidget, QWidget, QVBoxLayout, Q
 
 from datos import Ventana6
 from ejercicios import Ventana5
+from acercade import Acercade
 
 
 class Ventana3 (QMainWindow):
@@ -116,7 +117,9 @@ class Ventana3 (QMainWindow):
         self.hide()
 
     def acercade(self):
-        pass
+        self.hide()
+        self.acercade = Acercade(self)
+        self.acercade.show()
 
     def volver(self):
         self.hide()
