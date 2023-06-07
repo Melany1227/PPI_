@@ -10,9 +10,10 @@ from datos import Ventana6
 
 class Ventana2 (QMainWindow):
 
-    def __init__(self, anterior):
+    def __init__(self, anterior, nombre_usuario):
         super(Ventana2, self).__init__(anterior)
 
+        self.nombreUsuario = nombre_usuario
         self.setWindowTitle("HELP TRAINING")
         self.setWindowIcon(QIcon("imagenes/img_1.png"))
         self.setStyleSheet("background-color: black;")
@@ -42,7 +43,7 @@ class Ventana2 (QMainWindow):
 
         self.cuadricula.addWidget(QLabel(""), 0, 2)
 
-        self.label = QLabel("¡Bienvenido !")
+        self.label = QLabel("¡Bienvenido " + self.nombreUsuario + "!")
         self.label.setAlignment(Qt.AlignCenter)
         self.label.setStyleSheet("background-color: black; color: white; font-size: 30px; font-family: Poppins; font-weight: bold;")
         self.cuadricula.addWidget(self.label, 0, 1)
@@ -52,10 +53,10 @@ class Ventana2 (QMainWindow):
             "    Viene de una voluntad indomable. \n"
             "                                -Mahatma Gandhi",
             "  No puedes poner un limite a nada. \n"
-            "mientras mas sueñas, mas lejos llegas. \n "
+            "mientras mas sueñas, mas lejos llegas \n "
             "                                -Michael Phelps",
             "La motivacion es lo que te pone en marcha,\n"
-            "  y el hábito es lo que hace que sigas. \n "
+            "  y el habito es lo que hace que sigas. \n "
             "                                 -Robert Collier",
             "Lo que no te mata, te hace más fuerte. \n"
             "                                 -Friedrich Nietzsche"
@@ -84,6 +85,6 @@ class Ventana2 (QMainWindow):
         self.cuadricula.addWidget(self.botoninicio, 3, 1)
 
     def comenzar(self):
-        self.interfaz_principal = Ventana3(self)
+        self.interfaz_principal = Ventana3(self, self.nombreUsuario)
         self.interfaz_principal.show()
         self.hide()

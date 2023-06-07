@@ -622,7 +622,7 @@ class Ventana7_5(QMainWindow):
 
         self.imagenSentadilla = QLabel()
         self.imagenSentadilla.setAlignment(Qt.AlignCenter)
-        self.pixmap = QPixmap("imagenes/Espalda2.2.jpg")
+        self.pixmap = QPixmap("imagenes/Espalda2.1.jpg")
         self.imagenSentadilla.setFixedSize(400, 250)
         self.imagenSentadilla.setPixmap(self.pixmap)
         self.cuadricula.addWidget(self.imagenSentadilla, 2, 7, 3, 1)
