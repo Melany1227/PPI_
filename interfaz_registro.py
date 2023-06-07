@@ -405,7 +405,7 @@ class Ventana4 (QMainWindow):
             # ---- MOSTRAR MENSAJE IMC ----
 
             if (self.imc < 18.5):
-                self.mensaje.setText(f"Su indice de masa corporal es: {self.imc:.2f} \nBajo peso")
+                self.mensaje.setText(f"Su indice de masa corporal es: {self.imc:.2f}\nSegún tu IMC, estás en la categoría de peso bajo.\nEs importante asegurarte de recibir la nutrición adecuada\ny considerar hablar con un profesional de la salud\npara evaluar tu situación.")
                 self.ventanaDialogo.exec_()
                 self.contadorPri += 1
 
@@ -420,7 +420,7 @@ class Ventana4 (QMainWindow):
                 self.contadorPri += 1
 
             if (self.imc >= 30.0):
-                self.mensaje.setText(f"Su indice de masa corporal es: {self.imc:.2f}\nDe acuerdo con tu IMC, estás en la categoría de obesidad.\nTe recomendamos consultar a un profesional de la salud para\nrecibir orientación personalizada y establecer metas de salud adecuadas.")
+                self.mensaje.setText(f"Su indice de masa corporal es: {self.imc:.2f}\nSegún tu IMC, estás en la categoría de obesidad.\nTe recomendamos consultar a un profesional de la salud para\nrecibir orientación personalizada y establecer metas de salud adecuadas.")
                 self.ventanaDialogo.exec_()
                 self.contadorPri += 1
 

@@ -7,15 +7,16 @@ from PyQt5.QtWidgets import QMainWindow, QDesktopWidget, QWidget, QVBoxLayout, Q
 
 from datos import Ventana6
 from ejercicios import Ventana5
+from interfaz_perfil import Ventana8
 
 
 class Ventana3 (QMainWindow):
 
-    def __init__(self, anterior):
+    def __init__(self, anterior, nombre_usuario):
         super(Ventana3, self).__init__(anterior)
 
         self.ventanaAnterior = anterior
-
+        self.nombreUsuario = nombre_usuario
         self.setWindowTitle("HELP TRAINING")
         self.setWindowIcon(QIcon("imagenes/img_1.png"))
         self.setStyleSheet("background-color: black;")
@@ -42,11 +43,11 @@ class Ventana3 (QMainWindow):
         self.cuadricula = QGridLayout()
         self.interna.setLayout(self.cuadricula)
 
-        self.botonrutina = QPushButton("Rutina")
+        self.botonrutina = QPushButton("Mi perfil")
         self.botonrutina.setFixedWidth(250)
         self.botonrutina.setStyleSheet("color: white; font-size: 18px; font-family: Poppins; padding: 10px; border-radius:10px; "
                                         "border: 1px solid #FFFFFF; width:10px; height:20px;")
-        self.botonrutina.clicked.connect(self.rutina)
+        self.botonrutina.clicked.connect(self.metodo_perfil)
         self.cuadricula.addWidget(self.botonrutina, 0, 0)
 
         self.botonplan = QPushButton("Plan")
@@ -100,9 +101,6 @@ class Ventana3 (QMainWindow):
 
 
 
-
-    def rutina(self):
-        pass
     def plan(self):
         pass
     def datos_estadisticas(self):
@@ -124,3 +122,8 @@ class Ventana3 (QMainWindow):
 
     def cerrarsesion(self):
         sys.exit()
+
+    def metodo_perfil(self):
+        self.hide()
+        self.interfaz_perfil = Ventana8(self, self.nombreUsuario)
+        self.interfaz_perfil.show()

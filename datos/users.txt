@@ -1,3 +1,4 @@
 2023-06-04;Melany Suarez Rivera;Mel;1234;1234;161;70;4;6;Ninguna
 2023-06-04;Juan Manuel Cuartas;JC;q;q;167;63;3;5;Ninguna
-
+2023-06-04;l;l;l;l;160;40;1;5;Enfermedades neurológicas
+2023-06-07;Allison Serna;Allis;23;23;170;53;0;4;Ninguna
