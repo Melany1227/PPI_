@@ -1,0 +1,4 @@
+2023-06-04;Melany Suarez Rivera;Mel;1234;1234;161;70;4;6;Ninguna
+2023-06-04;Juan Manuel Cuartas;JC;q;q;167;63;3;5;Ninguna
+2023-06-05;LIZETH;LM;LM;LM;163;80;0;2;Ninguna
+2023-06-05;ALLI S;Allis;2323;2323;168;53;0;7;Ninguna

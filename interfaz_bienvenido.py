@@ -6,6 +6,7 @@ from PyQt5.QtGui import QFont, QPixmap, QIcon
 from PyQt5.QtWidgets import QMainWindow, QDesktopWidget, QWidget, QVBoxLayout, QTabWidget, QApplication, QLabel, \
     QGridLayout, QPushButton
 from interfaz_principal import Ventana3
+from datos import Ventana6
 
 class Ventana2 (QMainWindow):
 
@@ -41,7 +42,7 @@ class Ventana2 (QMainWindow):
 
         self.cuadricula.addWidget(QLabel(""), 0, 2)
 
-        self.label = QLabel("¡Bienvenido!")
+        self.label = QLabel("¡Bienvenido !")
         self.label.setAlignment(Qt.AlignCenter)
         self.label.setStyleSheet("background-color: black; color: white; font-size: 30px; font-family: Poppins; font-weight: bold;")
         self.cuadricula.addWidget(self.label, 0, 1)
@@ -51,10 +52,10 @@ class Ventana2 (QMainWindow):
             "    Viene de una voluntad indomable. \n"
             "                                -Mahatma Gandhi",
             "  No puedes poner un limite a nada. \n"
-            "mientras mas sueñas, mas lejos llegas \n "
+            "mientras mas sueñas, mas lejos llegas. \n "
             "                                -Michael Phelps",
             "La motivacion es lo que te pone en marcha,\n"
-            "  y el habito es lo que hace que sigas. \n "
+            "  y el hábito es lo que hace que sigas. \n "
             "                                 -Robert Collier",
             "Lo que no te mata, te hace más fuerte. \n"
             "                                 -Friedrich Nietzsche"
@@ -71,7 +72,6 @@ class Ventana2 (QMainWindow):
         self.imagen.setFixedSize(300, 236)
         self.imagen.setPixmap(self.pixmap)
         self.cuadricula.addWidget(self.imagen, 1, 1)
-
 
 
         self.botoninicio = QPushButton("Comenzar")

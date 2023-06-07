@@ -1,8 +1,11 @@
-from PyQt5 import QtWidgets, QtCore
+import sys
+from PyQt5 import QtWidgets, QtCore, QtGui
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QPixmap, QFont, QFontDatabase, QIcon
 from PyQt5.QtWidgets import QLabel, QDesktopWidget, QMainWindow, QWidget, QFormLayout, QVBoxLayout, QGridLayout, \
-    QDialog, QDialogButtonBox
+    QDialog, QDialogButtonBox, QPushButton
+
+from users import Usuarios
 from interfaz_bienvenido import Ventana2
 from interfaz_registro import Ventana4
 
@@ -58,19 +61,16 @@ class LoginWindow(QMainWindow):
 
 
 
-        self.username_edit = QtWidgets.QLineEdit(self)
-        self.username_edit.setAlignment(Qt.AlignCenter)
-        self.username_edit.setStyleSheet("color: white; font-size: 18px; font-family: Poppins; padding: 5px; border-radius:10px; "
+        self.user_edit = QtWidgets.QLineEdit(self)
+        self.user_edit.setAlignment(Qt.AlignCenter)
+        self.user_edit.setStyleSheet("color: white; font-size: 18px; font-family: Poppins; padding: 5px; border-radius:10px; "
                                         "border: 1px solid #FFFFFF; ")
-        self.cuadricula.addWidget(self.username_edit, 1, 2)
-
+        self.cuadricula.addWidget(self.user_edit, 1, 2)
 
         self.password_label = QtWidgets.QLabel('Contraseña')
         self.password_label.setAlignment(Qt.AlignCenter)
         self.password_label.setStyleSheet("color: white; font-size: 20px; font-family: Poppins; ")
         self.cuadricula.addWidget(self.password_label, 2, 0)
-
-
 
         self.imgPwd = QLabel(self.password_label)
         self.imgPwd.setPixmap(QPixmap("imagenes/contrasena.png").scaled(35, 35, 35, 35))
@@ -98,17 +98,12 @@ class LoginWindow(QMainWindow):
         self.cuadricula.addWidget(self.registro_button, 4, 0, 2, 4)
 
 
-
     def login(self):
-        # Función para manejar el inicio de sesión
-        username = self.username_edit.text()
-        password = self.password_edit.text()
 
-        if username == 'q' and password == 'q':
-            self.interfaz_bienvenido = Ventana2(self)
-            self.interfaz_bienvenido.show()
-            self.hide()
-        else:
+        self.datosCorrectos = True
+
+        if (self.user_edit.text() == '' or self.password_edit.text() == ''):
+            self.datosCorrectos = False
             self.ventanaDialogo = QDialog()
 
             self.ventanaDialogo.resize(300, 150)
@@ -117,7 +112,73 @@ class LoginWindow(QMainWindow):
             self.opcionesBotones = QDialogButtonBox(self.botonAceptar)
             self.opcionesBotones.accepted.connect(self.ventanaDialogo.accept)
 
-            self.ventanaDialogo.setWindowTitle("Validar inicio de sesión")
+            self.ventanaDialogo.setWindowTitle("HELP TRAINING")
+            self.ventanaDialogo.setWindowIcon(QtGui.QIcon("imagenes/img_1.png"))
+
+            self.ventanaDialogo.setWindowModality(Qt.ApplicationModal)
+
+            self.vertical = QVBoxLayout()
+            self.mensaje = QLabel("")
+            self.mensaje.setStyleSheet("background-color: #000000; color: #FFFFFF; font-size: 18px; "
+                                       "font-family: Poppins; padding: 10px; border-radius:10px;")
+
+            self.vertical.addWidget(self.mensaje)
+            self.vertical.addWidget(self.opcionesBotones)
+
+            self.ventanaDialogo.setLayout(self.vertical)
+            self.mensaje.setText("Contraseña y/o usuario incorrecto, por favor intente de nuevo.")
+            self.ventanaDialogo.exec_()
+
+        if self.datosCorrectos:
+
+            # Abrimos el archivo en modo agregar escribiendo datos en binario.
+            self.file = open('datos/users.txt', 'rb')
+            usuario = []
+
+            while self.file:
+                linea = self.file.readline().decode('UTF-8')
+                lista = linea.split(";")
+                if linea == '':
+                    break
+
+                u = Usuarios(
+                    lista[0],
+                    lista[1],
+                    lista[2],
+                    lista[3],
+                    lista[4],
+                    lista[5],
+                    lista[6],
+                    lista[7],
+                    lista[8],
+                    lista[9]
+
+                )
+                usuario.append(u)
+            self.file.close()
+
+            existeDocumento = False
+
+            for u in usuario:
+                if u.user_edit == self.user_edit.text() and u.password_edit == (self.password_edit.text()):
+                    self.hide()
+                    self.interfaz_bienvenido = Ventana2(self)
+                    self.interfaz_bienvenido.show()
+
+                    existeDocumento = True
+                    break
+
+        if (not existeDocumento):
+            self.ventanaDialogo = QDialog()
+
+            self.ventanaDialogo.resize(300, 150)
+
+            self.botonAceptar = QDialogButtonBox.Ok
+            self.opcionesBotones = QDialogButtonBox(self.botonAceptar)
+            self.opcionesBotones.accepted.connect(self.ventanaDialogo.accept)
+
+            self.ventanaDialogo.setWindowTitle("HELP TRAINING")
+            self.ventanaDialogo.setWindowIcon(QtGui.QIcon("imagenes/img_1.png"))
 
             self.ventanaDialogo.setWindowModality(Qt.ApplicationModal)
 
@@ -134,16 +195,13 @@ class LoginWindow(QMainWindow):
             self.ventanaDialogo.exec_()
 
 
-
-
     def registrar(self):
-        self.interfaz_registro = Ventana4(self)
-        self.interfaz_registro.show()
+        self.ventana1 = Ventana4(self)
+        self.ventana1.show()
         self.hide()
 
-
 if __name__ == '__main__':
-    app = QtWidgets.QApplication([])
+    app = QtWidgets.QApplication(sys.argv)
     window = LoginWindow()
     window.show()
-    app.exec_()
+    sys.exit(app.exec_())
