@@ -215,7 +215,7 @@ class Ventana7_2(QMainWindow):
                                          "\n(Puedes escoger cualquier nivel)"), 2, 2, 1, 6)
         self.imagenSentadilla = QLabel()
         self.imagenSentadilla.setAlignment(Qt.AlignCenter)
-        self.pixmap = QPixmap("imagenes/sentadilla.png")
+        self.pixmap = QPixmap("imagenes/Gluteo2.jpg")
         self.imagenSentadilla.setFixedSize(400, 250)
         self.imagenSentadilla.setPixmap(self.pixmap)
         self.cuadricula.addWidget(self.imagenSentadilla, 2, 7, 3, 1)
@@ -353,7 +353,7 @@ class Ventana7_3(QMainWindow):
 
         self.imagenSentadilla = QLabel()
         self.imagenSentadilla.setAlignment(Qt.AlignCenter)
-        self.pixmap = QPixmap("imagenes/sentadilla.png")
+        self.pixmap = QPixmap("imagenes/Isquio2.jpg")
         self.imagenSentadilla.setFixedSize(400, 250)
         self.imagenSentadilla.setPixmap(self.pixmap)
         self.cuadricula.addWidget(self.imagenSentadilla, 2, 7, 3, 1)
@@ -487,7 +487,7 @@ class Ventana7_4(QMainWindow):
 
         self.imagenSentadilla = QLabel()
         self.imagenSentadilla.setAlignment(Qt.AlignCenter)
-        self.pixmap = QPixmap("imagenes/sentadilla.png")
+        self.pixmap = QPixmap("imagenes/Pantorrilla2.jpg")
         self.imagenSentadilla.setFixedSize(400, 250)
         self.imagenSentadilla.setPixmap(self.pixmap)
         self.cuadricula.addWidget(self.imagenSentadilla, 2, 7, 3, 1)
@@ -622,7 +622,7 @@ class Ventana7_5(QMainWindow):
 
         self.imagenSentadilla = QLabel()
         self.imagenSentadilla.setAlignment(Qt.AlignCenter)
-        self.pixmap = QPixmap("imagenes/espalda2.jpg")
+        self.pixmap = QPixmap("imagenes/Espalda2.2.jpg")
         self.imagenSentadilla.setFixedSize(400, 250)
         self.imagenSentadilla.setPixmap(self.pixmap)
         self.cuadricula.addWidget(self.imagenSentadilla, 2, 7, 3, 1)
@@ -762,7 +762,7 @@ class Ventana7_6(QMainWindow):
 
         self.imagenSentadilla = QLabel()
         self.imagenSentadilla.setAlignment(Qt.AlignCenter)
-        self.pixmap = QPixmap("imagenes/sentadilla.png")
+        self.pixmap = QPixmap("imagenes/Biceps2.jpg")
         self.imagenSentadilla.setFixedSize(400, 250)
         self.imagenSentadilla.setPixmap(self.pixmap)
         self.cuadricula.addWidget(self.imagenSentadilla, 2, 7, 3, 1)
@@ -895,7 +895,7 @@ class Ventana7_7(QMainWindow):
 
         self.imagenSentadilla = QLabel()
         self.imagenSentadilla.setAlignment(Qt.AlignCenter)
-        self.pixmap = QPixmap("imagenes/sentadilla.png")
+        self.pixmap = QPixmap("imagenes/Triceps2.jpg")
         self.imagenSentadilla.setFixedSize(400, 250)
         self.imagenSentadilla.setPixmap(self.pixmap)
         self.cuadricula.addWidget(self.imagenSentadilla, 2, 7, 3, 1)
@@ -1014,11 +1014,11 @@ class Ventana7_8(QMainWindow):
 
 
         self.cuadricula.addWidget(QLabel("Ejercicio de Giros de muñeca con mancuernas:"
-                                         "\n Siéntate en un banco con los pies apoyados en el suelo,sostén una"
-                                         "\n en cada mano con las palmas hacia abajo. mancuerna Apoya los"
-                                         "\n antebrazos sobre los muslos y deja que las manos cuelguen. Gira"
-                                         "\n las muñecas hacia afuera (palmas hacia arriba) y luego hacia" 
-                                         "\n adentro (palmas hacia abajo)"), 1, 2, 1, 6)
+                                         "\n Siéntate en un banco con los pies en el suelo,sostén una"
+                                         "\n mancuerna en cada mano con las palmas hacia abajo. Apoya los"
+                                         "\n antebrazos sobre los muslos,deja que las manos cuelguen. Gira"
+                                         "\n las muñecas hacia afuera (palmas arriba) y luego hacia" 
+                                         "\n adentro (palmas abajo.)"), 1, 2, 1, 6)
 
 
 
@@ -1031,7 +1031,7 @@ class Ventana7_8(QMainWindow):
 
         self.imagenSentadilla = QLabel()
         self.imagenSentadilla.setAlignment(Qt.AlignCenter)
-        self.pixmap = QPixmap("imagenes/sentadilla.png")
+        self.pixmap = QPixmap("imagenes/Antebrazos2.jpg")
         self.imagenSentadilla.setFixedSize(400, 250)
         self.imagenSentadilla.setPixmap(self.pixmap)
         self.cuadricula.addWidget(self.imagenSentadilla, 2, 7, 3, 1)
@@ -1079,7 +1079,7 @@ class Ventana7_9(QMainWindow):
     def __init__(self, anterior):
         super(Ventana7_9, self).__init__(anterior)
         self.ventanaAnterior = anterior
-        self.setWindowTitle("Cuadriceps")
+        self.setWindowTitle("Pecho")
 
         self.setStyleSheet('background-color: black;')
 
@@ -1110,7 +1110,7 @@ class Ventana7_9(QMainWindow):
         self.interna.setStyleSheet("color: white; font-size: 25px; font-family: Poppins; border-radius:2px;"
                                    "border: 3px solid 	#000000;")
 
-        self.label = QLabel("CUADRICEPS")
+        self.label = QLabel("PECHO")
         self.label.setAlignment(Qt.AlignHCenter)  # Centra horizontalmente el contenido interno
         self.label.setStyleSheet('font-size: 60px;color: white; border: 5px double lightcoral; text-stroke: 2px gold;')
         self.layout = QHBoxLayout()
@@ -1149,10 +1149,11 @@ class Ventana7_9(QMainWindow):
 
 
 
-        self.cuadricula.addWidget(QLabel("Fortalece y tonifica tus cuádriceps con sentadillas efectivas:"
-                                         "\n el ejercicio clave para unas piernas fuertes y esculpidas."
-                                         "\n Las sentadillas son una excelente manera de trabajar"
-                                         "\n los músculos de tus piernas, especialmente los cuádriceps."), 1, 2, 1, 6)
+        self.cuadricula.addWidget(QLabel("Fortalece tu pecho con Press de banca:"
+                                         "\n Este ejercicio se realiza acostado en un banco plano,"
+                                         "\n sosteniendo una barra con pesas a la altura del pecho y luego"
+                                         "\n empujando la barra hacia arriba hasta que los brazos estén"
+                                         "\n completamente extendidos. ."), 1, 2, 1, 6)
 
 
 
@@ -1166,7 +1167,7 @@ class Ventana7_9(QMainWindow):
 
         self.imagenSentadilla = QLabel()
         self.imagenSentadilla.setAlignment(Qt.AlignCenter)
-        self.pixmap = QPixmap("imagenes/sentadilla.png")
+        self.pixmap = QPixmap("imagenes/Pecho2.jpg")
         self.imagenSentadilla.setFixedSize(400, 250)
         self.imagenSentadilla.setPixmap(self.pixmap)
         self.cuadricula.addWidget(self.imagenSentadilla, 2, 7, 3, 1)
@@ -1214,7 +1215,7 @@ class Ventana7_10(QMainWindow):
     def __init__(self, anterior):
         super(Ventana7_10, self).__init__(anterior)
         self.ventanaAnterior = anterior
-        self.setWindowTitle("Cuadriceps")
+        self.setWindowTitle("Hombros")
 
         self.setStyleSheet('background-color: black;')
 
@@ -1245,7 +1246,7 @@ class Ventana7_10(QMainWindow):
         self.interna.setStyleSheet("color: white; font-size: 25px; font-family: Poppins; border-radius:2px;"
                                    "border: 3px solid 	#000000;")
 
-        self.label = QLabel("CUADRICEPS")
+        self.label = QLabel("HOMBROS")
         self.label.setAlignment(Qt.AlignHCenter)  # Centra horizontalmente el contenido interno
         self.label.setStyleSheet('font-size: 60px;color: white; border: 5px double lightcoral; text-stroke: 2px gold;')
         self.layout = QHBoxLayout()
@@ -1284,10 +1285,11 @@ class Ventana7_10(QMainWindow):
 
 
 
-        self.cuadricula.addWidget(QLabel("Fortalece y tonifica tus cuádriceps con sentadillas efectivas:"
-                                         "\n el ejercicio clave para unas piernas fuertes y esculpidas."
-                                         "\n Las sentadillas son una excelente manera de trabajar"
-                                         "\n los músculos de tus piernas, especialmente los cuádriceps."), 1, 2, 1, 6)
+        self.cuadricula.addWidget(QLabel("Ejercicio de Hombros Levantamiento lateral con mancuernas:"
+                                         "\n De pie, sostén una mancuerna en cada mano. Levanta los brazos a"
+                                         "\n los lados hasta estar paralelos al suelo. Los codos  deben estar"
+                                         "\n ligeramente doblados. Regresa lentamente a la posición inicial."
+                                         "\n Trabaja los músculos deltoides laterales."), 1, 2, 1, 6)
 
 
 
@@ -1301,7 +1303,7 @@ class Ventana7_10(QMainWindow):
 
         self.imagenSentadilla = QLabel()
         self.imagenSentadilla.setAlignment(Qt.AlignCenter)
-        self.pixmap = QPixmap("imagenes/sentadilla.png")
+        self.pixmap = QPixmap("imagenes/Hombro2.jpg")
         self.imagenSentadilla.setFixedSize(400, 250)
         self.imagenSentadilla.setPixmap(self.pixmap)
         self.cuadricula.addWidget(self.imagenSentadilla, 2, 7, 3, 1)
@@ -1349,7 +1351,7 @@ class Ventana7_11(QMainWindow):
     def __init__(self, anterior):
         super(Ventana7_11, self).__init__(anterior)
         self.ventanaAnterior = anterior
-        self.setWindowTitle("Cuadriceps")
+        self.setWindowTitle("Abdomen")
 
         self.setStyleSheet('background-color: black;')
 
@@ -1380,7 +1382,7 @@ class Ventana7_11(QMainWindow):
         self.interna.setStyleSheet("color: white; font-size: 25px; font-family: Poppins; border-radius:2px;"
                                    "border: 3px solid 	#000000;")
 
-        self.label = QLabel("CUADRICEPS")
+        self.label = QLabel("ABDOMEN")
         self.label.setAlignment(Qt.AlignHCenter)  # Centra horizontalmente el contenido interno
         self.label.setStyleSheet('font-size: 60px;color: white; border: 5px double lightcoral; text-stroke: 2px gold;')
         self.layout = QHBoxLayout()
@@ -1419,10 +1421,11 @@ class Ventana7_11(QMainWindow):
 
 
 
-        self.cuadricula.addWidget(QLabel("Fortalece y tonifica tus cuádriceps con sentadillas efectivas:"
-                                         "\n el ejercicio clave para unas piernas fuertes y esculpidas."
-                                         "\n Las sentadillas son una excelente manera de trabajar"
-                                         "\n los músculos de tus piernas, especialmente los cuádriceps."), 1, 2, 1, 6)
+        self.cuadricula.addWidget(QLabel("Fortalece tu Abdomen con Plank (Plancha):"
+                                         "\n Apoya los antebrazos y los dedos de los pies en el suelo."
+                                         "\n Mantén el cuerpo recto y paralelo al suelo. Contrayendo los músculos"
+                                         "\n abdominales, mantén la posición durante 30 segundos a 1 minuto. "
+                                         "\n Trabaja los músculos abdominales, los oblicuos y los de la espalda."), 1, 2, 1, 6)
 
 
 
@@ -1436,7 +1439,7 @@ class Ventana7_11(QMainWindow):
 
         self.imagenSentadilla = QLabel()
         self.imagenSentadilla.setAlignment(Qt.AlignCenter)
-        self.pixmap = QPixmap("imagenes/sentadilla.png")
+        self.pixmap = QPixmap("imagenes/Abdomen2.jpg")
         self.imagenSentadilla.setFixedSize(400, 250)
         self.imagenSentadilla.setPixmap(self.pixmap)
         self.cuadricula.addWidget(self.imagenSentadilla, 2, 7, 3, 1)
