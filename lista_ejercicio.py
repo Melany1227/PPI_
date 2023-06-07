@@ -263,7 +263,7 @@ class Ventana7_3(QMainWindow):
     def __init__(self, anterior):
         super(Ventana7_3, self).__init__(anterior)
         self.ventanaAnterior = anterior
-        self.setWindowTitle("Cuadriceps")
+        self.setWindowTitle("ISQUIOTIBIALES")
 
         self.setStyleSheet('background-color: black;')
 
@@ -294,7 +294,7 @@ class Ventana7_3(QMainWindow):
         self.interna.setStyleSheet("color: white; font-size: 25px; font-family: Poppins; border-radius:2px;"
                                    "border: 3px solid 	#000000;")
 
-        self.label = QLabel("CUADRICEPS")
+        self.label = QLabel("ISQUIOTIBIALES")
         self.label.setAlignment(Qt.AlignHCenter)  # Centra horizontalmente el contenido interno
         self.label.setStyleSheet('font-size: 60px;color: white; border: 5px double lightcoral; text-stroke: 2px gold;')
         self.layout = QHBoxLayout()
@@ -333,10 +333,13 @@ class Ventana7_3(QMainWindow):
 
 
 
-        self.cuadricula.addWidget(QLabel("Fortalece y tonifica tus cuádriceps con sentadillas efectivas:"
-                                         "\n el ejercicio clave para unas piernas fuertes y esculpidas."
-                                         "\n Las sentadillas son una excelente manera de trabajar"
-                                         "\n los músculos de tus piernas, especialmente los cuádriceps."), 1, 2, 1, 6)
+        self.cuadricula.addWidget(QLabel("Fortalece y tonifica tus Isquiotibiales con Peso Muerto:"
+                                         "\n Coloca una barra con peso frente a ti, asegurándote de que"
+                                         "\n tus pies estén separados al ancho de los hombros. Flexiona"
+                                         "\n las rodillas y las caderas para bajar la barra hacia el suelo"
+                                         "\n manteniendo la espalda recta luego, extiende las piernas y las"
+                                         "\n caderas para levantar la barra de nuevo a la posición inicial."
+                                         "\n Mantén los isquiotibiales contraídos durante todo el movimiento."), 1, 2, 1, 6)
 
 
 
@@ -398,7 +401,7 @@ class Ventana7_4(QMainWindow):
     def __init__(self, anterior):
         super(Ventana7_4, self).__init__(anterior)
         self.ventanaAnterior = anterior
-        self.setWindowTitle("Cuadriceps")
+        self.setWindowTitle("Pantorrilla")
 
         self.setStyleSheet('background-color: black;')
 
@@ -429,7 +432,7 @@ class Ventana7_4(QMainWindow):
         self.interna.setStyleSheet("color: white; font-size: 25px; font-family: Poppins; border-radius:2px;"
                                    "border: 3px solid 	#000000;")
 
-        self.label = QLabel("CUADRICEPS")
+        self.label = QLabel("PANTORRILLA")
         self.label.setAlignment(Qt.AlignHCenter)  # Centra horizontalmente el contenido interno
         self.label.setStyleSheet('font-size: 60px;color: white; border: 5px double lightcoral; text-stroke: 2px gold;')
         self.layout = QHBoxLayout()
@@ -468,16 +471,15 @@ class Ventana7_4(QMainWindow):
 
 
 
-        self.cuadricula.addWidget(QLabel("Fortalece y tonifica tus cuádriceps con sentadillas efectivas:"
-                                         "\n el ejercicio clave para unas piernas fuertes y esculpidas."
-                                         "\n Las sentadillas son una excelente manera de trabajar"
-                                         "\n los músculos de tus piernas, especialmente los cuádriceps."), 1, 2, 1, 6)
+        self.cuadricula.addWidget(QLabel(" Elevación de Talones de pie con barra:"
+                                         "\n Coloca una barra con peso sobre tus hombros, Párate con los "
+                                         "\n pies separados al ancho de los hombros. Levanta los talones"
+                                         "\n mientras te apoyas en las puntas de los pies. Baja lentamente"
+                                         "\n los talones de nuevo al suelo. Recuerda mantener una buena"
+                                         "\n técnica y ajustar el peso según tu nivel de  condición física."), 1, 2, 1, 6)
 
 
-
-
-
-        self.cuadricula.addWidget(QLabel("Selecciona el nivel de dificultad"
+        self.cuadricula.addWidget(QLabel(" Selecciona el nivel de dificultad"
                                          "\n sugerido"
                                          "\n(Puedes escoger cualquier nivel)"), 2, 2, 1, 6)
 
@@ -533,7 +535,7 @@ class Ventana7_5(QMainWindow):
     def __init__(self, anterior):
         super(Ventana7_5, self).__init__(anterior)
         self.ventanaAnterior = anterior
-        self.setWindowTitle("Cuadriceps")
+        self.setWindowTitle("Espalda")
 
         self.setStyleSheet('background-color: black;')
 
@@ -564,7 +566,7 @@ class Ventana7_5(QMainWindow):
         self.interna.setStyleSheet("color: white; font-size: 25px; font-family: Poppins; border-radius:2px;"
                                    "border: 3px solid 	#000000;")
 
-        self.label = QLabel("CUADRICEPS")
+        self.label = QLabel("ESPALDA")
         self.label.setAlignment(Qt.AlignHCenter)  # Centra horizontalmente el contenido interno
         self.label.setStyleSheet('font-size: 60px;color: white; border: 5px double lightcoral; text-stroke: 2px gold;')
         self.layout = QHBoxLayout()
@@ -603,16 +605,16 @@ class Ventana7_5(QMainWindow):
 
 
 
-        self.cuadricula.addWidget(QLabel("Fortalece y tonifica tus cuádriceps con sentadillas efectivas:"
-                                         "\n el ejercicio clave para unas piernas fuertes y esculpidas."
-                                         "\n Las sentadillas son una excelente manera de trabajar"
-                                         "\n los músculos de tus piernas, especialmente los cuádriceps."), 1, 2, 1, 6)
+        self.cuadricula.addWidget(QLabel("Fortalece tu Espalda con el ejercicio Remo con barra:"
+                                        "\n Párate con los pies separados al ancho de los hombros,mantén la"
+                                        "\n espalda recta. Agarra la barra con las palmas mirando hacia abajo"
+                                        "\n y las manos separadas al ancho de los hombros. Jala la barra"
+                                        "\n hacia tu cuerpo, manteniendo los codos en los costados."
+                                        "\n Regresa la barra lentamente a la posición inicial."), 1, 2, 1, 6)
 
 
-
-
-
-        self.cuadricula.addWidget(QLabel("Selecciona el nivel de dificultad"
+        self.cuadricula.addWidget(QLabel(" Repite el movimiento."
+                                         "\n Selecciona el nivel de dificultad"
                                          "\n sugerido"
                                          "\n(Puedes escoger cualquier nivel)"), 2, 2, 1, 6)
 
@@ -620,7 +622,7 @@ class Ventana7_5(QMainWindow):
 
         self.imagenSentadilla = QLabel()
         self.imagenSentadilla.setAlignment(Qt.AlignCenter)
-        self.pixmap = QPixmap("imagenes/sentadilla.png")
+        self.pixmap = QPixmap("imagenes/espalda2.jpg")
         self.imagenSentadilla.setFixedSize(400, 250)
         self.imagenSentadilla.setPixmap(self.pixmap)
         self.cuadricula.addWidget(self.imagenSentadilla, 2, 7, 3, 1)
@@ -668,7 +670,7 @@ class Ventana7_6(QMainWindow):
     def __init__(self, anterior):
         super(Ventana7_6, self).__init__(anterior)
         self.ventanaAnterior = anterior
-        self.setWindowTitle("Cuadriceps")
+        self.setWindowTitle("Biceps")
 
         self.setStyleSheet('background-color: black;')
 
@@ -699,7 +701,7 @@ class Ventana7_6(QMainWindow):
         self.interna.setStyleSheet("color: white; font-size: 25px; font-family: Poppins; border-radius:2px;"
                                    "border: 3px solid 	#000000;")
 
-        self.label = QLabel("CUADRICEPS")
+        self.label = QLabel("BICEPS")
         self.label.setAlignment(Qt.AlignHCenter)  # Centra horizontalmente el contenido interno
         self.label.setStyleSheet('font-size: 60px;color: white; border: 5px double lightcoral; text-stroke: 2px gold;')
         self.layout = QHBoxLayout()
@@ -738,18 +740,23 @@ class Ventana7_6(QMainWindow):
 
 
 
-        self.cuadricula.addWidget(QLabel("Fortalece y tonifica tus cuádriceps con sentadillas efectivas:"
-                                         "\n el ejercicio clave para unas piernas fuertes y esculpidas."
-                                         "\n Las sentadillas son una excelente manera de trabajar"
-                                         "\n los músculos de tus piernas, especialmente los cuádriceps."), 1, 2, 1, 6)
+        self.cuadricula.addWidget(QLabel("Fortalece y tonifica tus Biceps:"
+                                         "\n Párate con los pies separados al ancho de los hombros,"
+                                         "\n sostén una mancuerna en cada mano con las palmas mirando"
+                                         "\n hacia adelante. Dobla los codos y levanta las mancuernas"
+                                         "\n hacia los hombros girando las palmas hacia arriba. Mantén"
+                                         "\n la contracción en la parte superior durante un segundo."
+                                         "\n ,Baja lentamente las mancuernas"
+                                         "\n controladamente, hasta la posición inicial."), 1, 2, 1, 7)
 
 
 
 
 
-        self.cuadricula.addWidget(QLabel("Selecciona el nivel de dificultad"
+        self.cuadricula.addWidget(QLabel(" Selecciona el nivel de dificultad"
                                          "\n sugerido"
-                                         "\n(Puedes escoger cualquier nivel)"), 2, 2, 1, 6)
+                                         "\n Repite el movimiento."
+                                         "\n(Puedes escoger cualquier nivel)"), 2, 2, 1, 7)
 
 
 
@@ -803,7 +810,7 @@ class Ventana7_7(QMainWindow):
     def __init__(self, anterior):
         super(Ventana7_7, self).__init__(anterior)
         self.ventanaAnterior = anterior
-        self.setWindowTitle("Cuadriceps")
+        self.setWindowTitle("Triceps")
 
         self.setStyleSheet('background-color: black;')
 
@@ -834,7 +841,7 @@ class Ventana7_7(QMainWindow):
         self.interna.setStyleSheet("color: white; font-size: 25px; font-family: Poppins; border-radius:2px;"
                                    "border: 3px solid 	#000000;")
 
-        self.label = QLabel("CUADRICEPS")
+        self.label = QLabel("TRICEPS")
         self.label.setAlignment(Qt.AlignHCenter)  # Centra horizontalmente el contenido interno
         self.label.setStyleSheet('font-size: 60px;color: white; border: 5px double lightcoral; text-stroke: 2px gold;')
         self.layout = QHBoxLayout()
@@ -873,16 +880,14 @@ class Ventana7_7(QMainWindow):
 
 
 
-        self.cuadricula.addWidget(QLabel("Fortalece y tonifica tus cuádriceps con sentadillas efectivas:"
-                                         "\n el ejercicio clave para unas piernas fuertes y esculpidas."
-                                         "\n Las sentadillas son una excelente manera de trabajar"
-                                         "\n los músculos de tus piernas, especialmente los cuádriceps."), 1, 2, 1, 6)
+        self.cuadricula.addWidget(QLabel("Extensión de tríceps con barra EZ"
+                                         "\n Párate con los pies separados al ancho de los hombros, agarra la"
+                                         "\n barra con las manos cerca una a la otra, palmas hacia abajo."
+                                         "\n Levanta la barra sobre la cabeza, con los brazos extendidos."
+                                         "\n Dobla los codos y baja la barra detrás de la cabeza, cerca a las"
+                                         "\n orejas. Extiende los codos y levanta la barra."), 1, 2, 1, 6)
 
-
-
-
-
-        self.cuadricula.addWidget(QLabel("Selecciona el nivel de dificultad"
+        self.cuadricula.addWidget(QLabel("\n Selecciona el nivel de dificultad"
                                          "\n sugerido"
                                          "\n(Puedes escoger cualquier nivel)"), 2, 2, 1, 6)
 
@@ -938,7 +943,7 @@ class Ventana7_8(QMainWindow):
     def __init__(self, anterior):
         super(Ventana7_8, self).__init__(anterior)
         self.ventanaAnterior = anterior
-        self.setWindowTitle("Cuadriceps")
+        self.setWindowTitle("Antebrazo")
 
         self.setStyleSheet('background-color: black;')
 
@@ -969,7 +974,7 @@ class Ventana7_8(QMainWindow):
         self.interna.setStyleSheet("color: white; font-size: 25px; font-family: Poppins; border-radius:2px;"
                                    "border: 3px solid 	#000000;")
 
-        self.label = QLabel("CUADRICEPS")
+        self.label = QLabel("ANTEBRAZOS")
         self.label.setAlignment(Qt.AlignHCenter)  # Centra horizontalmente el contenido interno
         self.label.setStyleSheet('font-size: 60px;color: white; border: 5px double lightcoral; text-stroke: 2px gold;')
         self.layout = QHBoxLayout()
@@ -1008,11 +1013,12 @@ class Ventana7_8(QMainWindow):
 
 
 
-        self.cuadricula.addWidget(QLabel("Fortalece y tonifica tus cuádriceps con sentadillas efectivas:"
-                                         "\n el ejercicio clave para unas piernas fuertes y esculpidas."
-                                         "\n Las sentadillas son una excelente manera de trabajar"
-                                         "\n los músculos de tus piernas, especialmente los cuádriceps."), 1, 2, 1, 6)
-
+        self.cuadricula.addWidget(QLabel("Ejercicio de Giros de muñeca con mancuernas:"
+                                         "\n Siéntate en un banco con los pies apoyados en el suelo,sostén una"
+                                         "\n en cada mano con las palmas hacia abajo. mancuerna Apoya los"
+                                         "\n antebrazos sobre los muslos y deja que las manos cuelguen. Gira"
+                                         "\n las muñecas hacia afuera (palmas hacia arriba) y luego hacia" 
+                                         "\n adentro (palmas hacia abajo)"), 1, 2, 1, 6)
 
 
 
