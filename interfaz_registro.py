@@ -458,4 +458,3 @@ class Ventana4 (QMainWindow):
             self.hide()
             self.ventanaAnterior.show()
 
-

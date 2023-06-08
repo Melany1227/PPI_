@@ -162,7 +162,7 @@ class LoginWindow(QMainWindow):
             for u in usuario:
                 if u.user_edit == self.user_edit.text() and u.password_edit == (self.password_edit.text()):
                     self.hide()
-                    self.interfaz_bienvenido = Ventana2(self)
+                    self.interfaz_bienvenido = Ventana2(self, self.user_edit.text())
                     self.interfaz_bienvenido.show()
 
                     existeDocumento = True
