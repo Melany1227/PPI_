@@ -5,7 +5,7 @@ from PyQt5 import QtCore
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QPixmap, QFont, QIcon
 from PyQt5.QtWidgets import QMainWindow, QDesktopWidget, QLabel, QFormLayout, QApplication, QLineEdit, QDialog, \
-    QDialogButtonBox, QVBoxLayout, QPushButton, QWidget, QButtonGroup, QScrollArea, QGridLayout, QHBoxLayout
+    QDialogButtonBox, QVBoxLayout, QPushButton, QWidget, QButtonGroup, QScrollArea, QGridLayout, QHBoxLayout, QComboBox
 
 from lista_ejercicio import Ventana7_1, Ventana7_2, Ventana7_3, Ventana7_4, Ventana7_5, Ventana7_6, Ventana7_7, \
     Ventana7_8, Ventana7_9, Ventana7_10, Ventana7_11
@@ -70,8 +70,8 @@ class Ventana8(QMainWindow):
 
         self.contenedora = QWidget()
 
-        self.scrollArea.setMinimumWidth(120)
-        self.scrollArea.setMinimumHeight(400)
+        self.scrollArea.setContentsMargins(5, 5, 5, 5)
+
 
         self.cuadricula = QGridLayout(self.contenedora)
         self.scrollArea.setWidget(self.contenedora)
@@ -110,6 +110,15 @@ class Ventana8(QMainWindow):
         self.verticalCuadricula.addWidget(self.texto)
         self.ventanaAux.setLayout(self.verticalCuadricula)
 
+        self.lab = QLabel("Percepción semanal")
+        self.lab.setStyleSheet("color: white; font-size: 20px; font-family: Poppins;")
+        #self.lab.setFixedHeight(100)
+        #self.lab.setFixedWidth(500)
+        self.verticalCuadricula.addWidget(self.lab)
+        self.ventanaAux.setLayout(self.verticalCuadricula)
+
+        self.percepcion = QComboBox()
+
         self.botonDatos = QPushButton("Actualizar Datos")
         self.botonDatos.setFixedWidth(250)
         self.botonDatos.setStyleSheet(
@@ -118,6 +127,7 @@ class Ventana8(QMainWindow):
         self.botonDatos.clicked.connect(self.actualizar)
         self.verticalCuadricula.addWidget(self.botonDatos)
         self.ventanaAux.setLayout(self.verticalCuadricula)
+
         self.cuadricula.addWidget(self.ventanaAux)
 
         self.horizontal.addLayout(self.vertical)
@@ -154,10 +164,10 @@ class Ventana8(QMainWindow):
                 lista = line.strip().split(";")
                 if lista[2] == self.nombreUsuario:
                     # Aquí puedes acceder a los datos adicionales del usuario
-                    self.contraseña = lista[3]
+                    self.peso = lista[6]
                     self.enfermedad = lista[9]
                     # Hacer algo con los datos obtenidos
-                    print(self.contraseña, self.enfermedad)
+                    print(self.peso, self.enfermedad)
                     break
 
 
