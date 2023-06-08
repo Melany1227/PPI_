@@ -95,7 +95,7 @@ class Ventana7_1(QMainWindow): #Cuadriceps
 
         self.imagenSentadilla = QLabel()
         self.imagenSentadilla.setAlignment(Qt.AlignCenter)
-        self.pixmap = QPixmap("imagenes/sentadilla.png")
+        self.pixmap = QPixmap("imagenes/CUADRI1.jpg")
         self.imagenSentadilla.setFixedSize(400, 250)
         self.imagenSentadilla.setPixmap(self.pixmap)
         self.cuadricula.addWidget(self.imagenSentadilla, 2, 7, 3, 1)
@@ -215,7 +215,7 @@ class Ventana7_2(QMainWindow):
                                          "\n(Puedes escoger cualquier nivel)"), 2, 2, 1, 6)
         self.imagenSentadilla = QLabel()
         self.imagenSentadilla.setAlignment(Qt.AlignCenter)
-        self.pixmap = QPixmap("imagenes/Gluteo2.jpg")
+        self.pixmap = QPixmap("imagenes/GLUTEO1.jpg")
         self.imagenSentadilla.setFixedSize(400, 250)
         self.imagenSentadilla.setPixmap(self.pixmap)
         self.cuadricula.addWidget(self.imagenSentadilla, 2, 7, 3, 1)
@@ -353,7 +353,7 @@ class Ventana7_3(QMainWindow):
 
         self.imagenSentadilla = QLabel()
         self.imagenSentadilla.setAlignment(Qt.AlignCenter)
-        self.pixmap = QPixmap("imagenes/Isquio2.jpg")
+        self.pixmap = QPixmap("imagenes/ISQUIO1.jpg")
         self.imagenSentadilla.setFixedSize(400, 250)
         self.imagenSentadilla.setPixmap(self.pixmap)
         self.cuadricula.addWidget(self.imagenSentadilla, 2, 7, 3, 1)
@@ -487,7 +487,7 @@ class Ventana7_4(QMainWindow):
 
         self.imagenSentadilla = QLabel()
         self.imagenSentadilla.setAlignment(Qt.AlignCenter)
-        self.pixmap = QPixmap("imagenes/Pantorrilla2.jpg")
+        self.pixmap = QPixmap("imagenes/PANTORRILLA1.jpg")
         self.imagenSentadilla.setFixedSize(400, 250)
         self.imagenSentadilla.setPixmap(self.pixmap)
         self.cuadricula.addWidget(self.imagenSentadilla, 2, 7, 3, 1)
@@ -622,7 +622,7 @@ class Ventana7_5(QMainWindow):
 
         self.imagenSentadilla = QLabel()
         self.imagenSentadilla.setAlignment(Qt.AlignCenter)
-        self.pixmap = QPixmap("imagenes/Espalda2.2.jpg")
+        self.pixmap = QPixmap("imagenes/ESPALDA1.jpg")
         self.imagenSentadilla.setFixedSize(400, 250)
         self.imagenSentadilla.setPixmap(self.pixmap)
         self.cuadricula.addWidget(self.imagenSentadilla, 2, 7, 3, 1)
@@ -762,7 +762,7 @@ class Ventana7_6(QMainWindow):
 
         self.imagenSentadilla = QLabel()
         self.imagenSentadilla.setAlignment(Qt.AlignCenter)
-        self.pixmap = QPixmap("imagenes/Biceps2.jpg")
+        self.pixmap = QPixmap("imagenes/BICEPS1.jpg")
         self.imagenSentadilla.setFixedSize(400, 250)
         self.imagenSentadilla.setPixmap(self.pixmap)
         self.cuadricula.addWidget(self.imagenSentadilla, 2, 7, 3, 1)
@@ -895,7 +895,7 @@ class Ventana7_7(QMainWindow):
 
         self.imagenSentadilla = QLabel()
         self.imagenSentadilla.setAlignment(Qt.AlignCenter)
-        self.pixmap = QPixmap("imagenes/Triceps2.jpg")
+        self.pixmap = QPixmap("imagenes/TRICEPS1.jpg")
         self.imagenSentadilla.setFixedSize(400, 250)
         self.imagenSentadilla.setPixmap(self.pixmap)
         self.cuadricula.addWidget(self.imagenSentadilla, 2, 7, 3, 1)
@@ -1031,7 +1031,7 @@ class Ventana7_8(QMainWindow):
 
         self.imagenSentadilla = QLabel()
         self.imagenSentadilla.setAlignment(Qt.AlignCenter)
-        self.pixmap = QPixmap("imagenes/Antebrazos2.jpg")
+        self.pixmap = QPixmap("imagenes/ANTEBRAZOS.jpg")
         self.imagenSentadilla.setFixedSize(400, 250)
         self.imagenSentadilla.setPixmap(self.pixmap)
         self.cuadricula.addWidget(self.imagenSentadilla, 2, 7, 3, 1)
@@ -1167,7 +1167,7 @@ class Ventana7_9(QMainWindow):
 
         self.imagenSentadilla = QLabel()
         self.imagenSentadilla.setAlignment(Qt.AlignCenter)
-        self.pixmap = QPixmap("imagenes/Pecho2.jpg")
+        self.pixmap = QPixmap("imagenes/PECHO1.jpg")
         self.imagenSentadilla.setFixedSize(400, 250)
         self.imagenSentadilla.setPixmap(self.pixmap)
         self.cuadricula.addWidget(self.imagenSentadilla, 2, 7, 3, 1)
@@ -1303,7 +1303,7 @@ class Ventana7_10(QMainWindow):
 
         self.imagenSentadilla = QLabel()
         self.imagenSentadilla.setAlignment(Qt.AlignCenter)
-        self.pixmap = QPixmap("imagenes/Hombro2.jpg")
+        self.pixmap = QPixmap("imagenes/HOMBRO1.jpg")
         self.imagenSentadilla.setFixedSize(400, 250)
         self.imagenSentadilla.setPixmap(self.pixmap)
         self.cuadricula.addWidget(self.imagenSentadilla, 2, 7, 3, 1)
@@ -1439,7 +1439,7 @@ class Ventana7_11(QMainWindow):
 
         self.imagenSentadilla = QLabel()
         self.imagenSentadilla.setAlignment(Qt.AlignCenter)
-        self.pixmap = QPixmap("imagenes/Abdomen2.jpg")
+        self.pixmap = QPixmap("imagenes/ABDOMEN.jpg")
         self.imagenSentadilla.setFixedSize(400, 250)
         self.imagenSentadilla.setPixmap(self.pixmap)
         self.cuadricula.addWidget(self.imagenSentadilla, 2, 7, 3, 1)
