@@ -1,18 +1,31 @@
-from PyQt5.QtGui import QIcon, QFontDatabase, QFont
-from PyQt5.QtWidgets import QMainWindow, QDesktopWidget, QWidget, QVBoxLayout, QGridLayout
-from PyQt5 import QtWidgets
+import math
+import sys
 
-class Acercade(QMainWindow):
-    def __init__(self, anterior):
-        super(Acercade, self).__init__(anterior)
+from PyQt5 import QtCore
+from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QPixmap, QFont, QIcon
+from PyQt5.QtWidgets import QMainWindow, QDesktopWidget, QLabel, QFormLayout, QApplication, QLineEdit, QDialog, \
+    QDialogButtonBox, QVBoxLayout, QPushButton, QWidget, QButtonGroup, QScrollArea, QGridLayout, QHBoxLayout, QComboBox
+
+from lista_ejercicio import Ventana7_1, Ventana7_2, Ventana7_3, Ventana7_4, Ventana7_5, Ventana7_6, Ventana7_7, \
+    Ventana7_8, Ventana7_9, Ventana7_10, Ventana7_11
+from users import Usuarios
+
+
+class Ventana10(QMainWindow):
+
+    def __init__(self, anterior, nombre_usuario):
+        super(Ventana10, self).__init__(anterior)
 
         self.ventanaAnterior = anterior
+        self.nombreUsuario = nombre_usuario
 
         self.setWindowTitle("HELP TRAINING")
         self.setWindowIcon(QIcon("imagenes/img_1.png"))
         self.setStyleSheet("background-color: black;")
-        self.ancho = 600
-        self.alto = 600
+
+        self.ancho = 1000
+        self.alto = 800
         self.resize(self.ancho, self.alto)
 
         self.pantalla = (self.frameGeometry())
@@ -23,26 +36,151 @@ class Acercade(QMainWindow):
         self.setFixedWidth(self.ancho)
         self.setFixedHeight(self.alto)
 
-        QFontDatabase.addApplicationFont("fonts/Poppins-ExtraLight.ttf")
-        self.letra1 = QFont()
-        self.letra1.setFamily("Poppins")
-        self.letra1.setPointSize(25)
-
         self.interna = QWidget()
-        self.interna.setContentsMargins(50, 50, 50, 50)
+        self.interna.setContentsMargins(20, 20, 20, 20)
 
         self.setCentralWidget(self.interna)
+
         self.vertical = QVBoxLayout()
+        self.imagen = QLabel()
+        self.pixmap = QPixmap("imagenes/img_1.png")
+        self.imagen.setAlignment(QtCore.Qt.AlignCenter)
+        self.imagen.setFixedHeight(200)
+        self.imagen.setFixedWidth(300)
+        self.imagen.setPixmap(self.pixmap)
 
-        self.cuadricula = QGridLayout()
-        self.interna.setLayout(self.cuadricula)
+        self.vertical.addWidget(self.imagen)
 
-        self.volver_button = QtWidgets.QPushButton('Volver')
-        self.volver_button.setStyleSheet(
-            "color: white; font-size: 18px; font-family: Poppins; padding: 8px; border-radius:10px; "
-            "border: 1px solid #FFFFFF; ")
-        self.volver_button.clicked.connect(self.volver)
-        self.cuadricula.addWidget(self.volver_button, 4, 0, 2, 4)
+        self.vertical.addStretch()
+
+        self.botonVolver = QPushButton("Volver")
+        self.botonVolver.setFixedWidth(250)
+        self.botonVolver.setStyleSheet(
+            "color: white; font-size: 18px; font-family: Poppins; padding: 10px; border-radius:10px; "
+            "border: 1px solid #FFFFFF; width:10px; height:20px;")
+        self.botonVolver.clicked.connect(self.volver)
+        self.vertical.addWidget(self.botonVolver)
+
+        self.horizontal = QHBoxLayout()
+        self.horizontal.addLayout(self.vertical)
+        self.scrollArea = QScrollArea()
+        self.scrollArea.setWidgetResizable(True)
+
+        self.contenedora = QWidget()
+
+        self.scrollArea.setContentsMargins(10, 10, 10, 10)
+
+
+        self.cuadricula = QGridLayout(self.contenedora)
+        self.scrollArea.setWidget(self.contenedora)
+        self.horizontal.addWidget(self.scrollArea)
+
+        self.interna.setLayout(self.horizontal)
+
+        self.ventanaAux = QWidget()
+        self.ventanaAux.setFixedHeight(1000)
+        self.ventanaAux.setFixedWidth(600)
+        self.verticalCuadricula = QVBoxLayout()
+
+        self.letrero1 = QLabel()
+
+        self.letrero1.setText("Nuestra proyeccion")
+
+        self.letrero1.setFont(QFont("Poppins", 25))
+
+        self.letrero1.setAlignment(Qt.AlignCenter)
+
+        self.letrero1.setStyleSheet("color: white; font-size: 25px; font-family: Poppins; font-weight: bold;")
+
+        self.vertical.addWidget(self.letrero1)
+
+        self.verticalCuadricula.addWidget(self.letrero1)
+
+        self.texto = QLabel('En Help Training te queremos hablar de un viaje,\n'
+                            'un viaje que cambiará tu vida de una manera\n'
+                            'extraordinaria. Es un viaje hacia la mejor versión\n'
+                            'de ti mismo/a, un camino que te llevará a alcanzar\n'
+                            'metas que tal vez nunca pensaste posibles. Estamos \n'
+                            'hablando del camino hacia una vida activa y saludable.')
+        self.texto.setStyleSheet("color: white; font-size: 20px; font-family: Poppins; border: 2px solid #FFFFFF; "
+                                 "border-left: none;"
+                                 "border-right: none;"
+                                 "border-top: none;"
+                                 )
+        self.texto.setFixedHeight(350)
+        self.texto.setFixedWidth(600)
+        self.verticalCuadricula.addWidget(self.texto)
+        self.ventanaAux.setLayout(self.verticalCuadricula)
+
+        self.ladoIzquierdo = QFormLayout()
+
+        self.lab = QLabel("Datos")
+        self.lab.setStyleSheet("color: white; font-size: 20px; font-family: Poppins;")
+        #self.lab.setFixedHeight(100)
+        #self.lab.setFixedWidth(500)
+        self.verticalCuadricula.addWidget(self.lab)
+        self.ventanaAux.setLayout(self.verticalCuadricula)
+
+        self.weight = QLabel('Peso')
+        self.weight.setAlignment(Qt.AlignCenter)
+        self.weight.setStyleSheet("color: white; font-size: 20px; font-family: Poppins;")
+
+
+
+        self.ventanaAux.setLayout(self.verticalCuadricula)
+
+
+        self.botonDatos = QPushButton("Actualizar Datos")
+        self.botonDatos.setFixedWidth(250)
+        self.botonDatos.setStyleSheet(
+            "color: white; font-size: 18px; font-family: Poppins; padding: 10px; border-radius:10px; "
+            "border: 1px solid #FFFFFF; width:10px; height:20px;")
+        self.botonDatos.clicked.connect(self.actualizar)
+        self.verticalCuadricula.addWidget(self.botonDatos)
+        self.ventanaAux.setLayout(self.verticalCuadricula)
+
+        self.cuadricula.addWidget(self.ventanaAux)
+        self.horizontal.addLayout(self.ladoIzquierdo)
+
+        self.horizontal.addLayout(self.vertical)
+
+
+        self.file = open('datos/users.txt', 'rb')
+        usuario = []
+
+        while self.file:
+            linea = self.file.readline().decode('UTF-8')
+            lista = linea.split(";")
+            if linea == '':
+                break
+
+            u = Usuarios(
+                lista[0],
+                lista[1],
+                lista[2],
+                lista[3],
+                lista[4],
+                lista[5],
+                lista[6],
+                lista[7],
+                lista[8],
+                lista[9],
+                lista[10]
+            )
+            usuario.append(u)
+        self.file.close()
+
+        # Dentro de la clase Ventana2, después de cargar los datos de usuarios
+        with open("datos/users.txt", "r") as file:
+            for line in file:
+                # Separar los campos de la línea por punto y coma (;)
+                lista = line.strip().split(";")
+                if lista[2] == self.nombreUsuario:
+                    # Aquí puedes acceder a los datos adicionales del usuario
+                    self.peso = lista[6]
+                    self.enfermedad = lista[9]
+                    break
+
 
 
     def volver(self):
@@ -50,9 +188,5 @@ class Acercade(QMainWindow):
         self.ventanaAnterior.show()
 
 
-
-if __name__ == '__main__':
-    app = QtWidgets.QApplication([])
-    acercade = Acercade()
-    acercade.show()
-    app.exec_()
+    def actualizar(self):
+        pass

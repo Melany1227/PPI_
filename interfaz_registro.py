@@ -287,7 +287,6 @@ class Ventana4 (QMainWindow):
                 or self.plan_resp.currentText() == ''
                 or self.disease_resp.currentText() == ''
 
-
         ):
             self.datosCorrectos = False
 
@@ -343,7 +342,95 @@ class Ventana4 (QMainWindow):
                 + self.weight_edit.text() + ";"
                 + self.nivel_resp.currentText() + ";"
                 + self.plan_resp.currentText() + ";"
-                + self.disease_resp.currentText() + "\n"
+                + self.disease_resp.currentText() + ";"
+                , encoding='UTF-8'))
+            self.file.close()
+
+        if (self.disease_resp.currentText() != 'Ninguna'):
+            self.mensaje.setText("Antes de comenzar cualquier programa de actividad física, \n"
+                                     "es fundamental que consulte a su médico o especialista. \n"
+                                     "El médico podrá evaluar su condición de salud actual, \n"
+                                     "los riesgos y las limitaciones específicas, y así, \n"
+                                     "brindar recomendaciones personalizadas.")
+
+                # Hacemos que la ventana de dialogo se vea:
+            self.ventanaDialogo.exec_()
+
+            # ---- CALCULAR IMC ----
+
+        self.peso = float(self.weight_edit.text())
+
+        self.altura = float(self.height_edit.text())
+
+        self.imc = float(self.peso / ((self.altura / 100) ** 2))
+
+        # ---- CONTADOR: NIVEL ----
+
+        self.contadorPri = 0
+        self.contadorInt = 0
+        self.contadorAv = 0
+
+        self.nv = int(self.nivel_resp.currentText())
+
+
+        if (self.nv <= 2):
+            self.contadorPri += 1
+
+        if (self.nv == 3 or self.nv == 4):
+            self.contadorInt += 1
+
+        if (self.nv >= 5):
+            self.contadorAv += 1
+
+        self.planl = int(self.plan_resp.currentText())
+
+        if (self.planl <= 2):
+            self.contadorPri += 1
+
+        if (self.planl == 3 or self.planl == 4):
+            self.contadorInt += 1
+
+        if (self.planl >= 5):
+            self.contadorAv += 1
+
+        # ---- MOSTRAR MENSAJE IMC ----
+
+        if (self.imc < 18.5):
+            self.mensaje.setText(f"Su indice de masa corporal es: {self.imc:.2f}\nSegún tu IMC, estás en la categoría de peso bajo.\nEs importante asegurarte de recibir la nutrición adecuada\ny considerar hablar con un profesional de la salud\npara evaluar tu situación.")
+            self.ventanaDialogo.exec_()
+            self.contadorPri += 1
+
+        if (self.imc >= 18.5 and self.imc <= 24.9):
+            self.mensaje.setText(f"Su indice de masa corporal es: {self.imc:.2f}\nFelicidades, tu IMC se encuentra dentro del rango saludable.\nContinúa manteniendo hábitos saludables para mantener tu bienestar.")
+            self.ventanaDialogo.exec_()
+            self.contadorInt += 1
+
+        if (self.imc >= 25.0 and self.imc <= 29.9):
+            self.mensaje.setText(f"Su indice de masa corporal es: {self.imc:.2f}\nSegún tu IMC, estás en la categoría de sobrepeso. Recuerda\nque llevar una alimentación equilibrada y realizar actividad\nfísica regularmente pueden ayudarte a mejorar tu salud.")
+            self.ventanaDialogo.exec_()
+            self.contadorPri += 1
+
+        if (self.imc >= 30.0):
+            self.mensaje.setText(f"Su indice de masa corporal es: {self.imc:.2f}\nSegún tu IMC, estás en la categoría de obesidad.\nTe recomendamos consultar a un profesional de la salud para\nrecibir orientación personalizada y establecer metas de salud adecuadas.")
+            self.ventanaDialogo.exec_()
+            self.contadorPri += 1
+
+        self.imc = (f"{self.imc:.2f}")
+
+        # ---- MENSAJE NIVEL ----
+
+        if (self.contadorPri > self.contadorInt and self.contadorPri > self.contadorAv):
+            self.mensaje.setText("Te recomendamos iniciar tu entrenamiento en el nivel PRINCIPIANTE.\n"
+                                 "Recuerda escuchar a tu cuerpo y ajustar la intensidad según tus\n"
+                                 "necesidades y comodidad. ¡Estamos aquí para apoyarte en tu \n"
+                                 "camino hacia un estilo de vida saludable!")
+            self.ventanaDialogo.exec_()
+
+            self.nivel = 'Principiante'
+            self.file = open('datos/users.txt', 'ab')
+            self.file.write(bytes(
+                self.imc + ";"
+                + self.nivel + "\n"
                 , encoding='UTF-8'))
             self.file.close()
 
@@ -355,106 +442,56 @@ class Ventana4 (QMainWindow):
                     break
             self.file.close()
 
-            if (self.disease_resp.currentText() != 'Ninguna'):
-                self.mensaje.setText("Antes de comenzar cualquier programa de actividad física, \n"
-                                     "es fundamental que consulte a su médico o especialista. \n"
-                                     "El médico podrá evaluar su condición de salud actual, \n"
-                                     "los riesgos y las limitaciones específicas, y así, \n"
-                                     "brindar recomendaciones personalizadas.")
-
-                # Hacemos que la ventana de dialogo se vea:
-                self.ventanaDialogo.exec_()
-
-            # ---- CALCULAR IMC ----
-
-            self.peso = float(self.weight_edit.text())
-
-            self.altura = float(self.height_edit.text())
-
-            self.imc = float(self.peso / ((self.altura / 100) ** 2))
-
-            # ---- CONTADOR: NIVEL ----
-
-            self.contadorPri = 0
-            self.contadorInt = 0
-            self.contadorAv = 0
-
-            self.nv = int(self.nivel_resp.currentText())
-
-
-            if (self.nv <= 2):
-                self.contadorPri += 1
-
-            if (self.nv == 3 or self.nv == 4):
-                self.contadorInt += 1
-
-            if (self.nv >= 5):
-                self.contadorAv += 1
-
-            self.planl = int(self.plan_resp.currentText())
-
-            if (self.planl <= 2):
-                self.contadorPri += 1
-
-            if (self.planl == 3 or self.planl == 4):
-                self.contadorInt += 1
-
-            if (self.planl >= 5):
-                self.contadorAv += 1
-
-            # ---- MOSTRAR MENSAJE IMC ----
-
-            if (self.imc < 18.5):
-                self.mensaje.setText(f"Su indice de masa corporal es: {self.imc:.2f}\nSegún tu IMC, estás en la categoría de peso bajo.\nEs importante asegurarte de recibir la nutrición adecuada\ny considerar hablar con un profesional de la salud\npara evaluar tu situación.")
-                self.ventanaDialogo.exec_()
-                self.contadorPri += 1
-
-            if (self.imc >= 18.5 and self.imc <= 24.9):
-                self.mensaje.setText(f"Su indice de masa corporal es: {self.imc:.2f}\nFelicidades, tu IMC se encuentra dentro del rango saludable.\nContinúa manteniendo hábitos saludables para mantener tu bienestar.")
-                self.ventanaDialogo.exec_()
-                self.contadorInt += 1
-
-            if (self.imc >= 25.0 and self.imc <= 29.9):
-                self.mensaje.setText(f"Su indice de masa corporal es: {self.imc:.2f}\nSegún tu IMC, estás en la categoría de sobrepeso. Recuerda\nque llevar una alimentación equilibrada y realizar actividad\nfísica regularmente pueden ayudarte a mejorar tu salud.")
-                self.ventanaDialogo.exec_()
-                self.contadorPri += 1
-
-            if (self.imc >= 30.0):
-                self.mensaje.setText(f"Su indice de masa corporal es: {self.imc:.2f}\nSegún tu IMC, estás en la categoría de obesidad.\nTe recomendamos consultar a un profesional de la salud para\nrecibir orientación personalizada y establecer metas de salud adecuadas.")
-                self.ventanaDialogo.exec_()
-                self.contadorPri += 1
-
-
-            # ---- MENSAJE NIVEL ----
-
-            if (self.contadorPri > self.contadorInt and self.contadorPri > self.contadorAv):
-                self.mensaje.setText("Te recomendamos iniciar tu entrenamiento en el nivel PRINCIPIANTE.\n"
-                                     "Recuerda escuchar a tu cuerpo y ajustar la intensidad según tus\n"
-                                     "necesidades y comodidad. ¡Estamos aquí para apoyarte en tu \n"
-                                     "camino hacia un estilo de vida saludable!")
-                self.ventanaDialogo.exec_()
-
-            if ((self.contadorInt > self.contadorPri and self.contadorInt > self.contadorAv)
-                    or (self.contadorAv == self.contadorPri == self.contadorInt)):
-                self.mensaje.setText("Te recomendamos iniciar tu entrenamiento en el nivel INTERMEDIO.\n"
-                                     "Recuerda escuchar a tu cuerpo y ajustar la intensidad según tus\n"
-                                     "necesidades y comodidad. ¡Estamos aquí para apoyarte en tu \n"
-                                     "camino hacia un estilo de vida saludable!")
-                self.ventanaDialogo.exec_()
-
-            if (self.contadorAv > self.contadorPri and self.contadorAv > self.contadorInt):
-                self.mensaje.setText("Te recomendamos iniciar tu entrenamiento en el nivel AVANZADO.\n"
-                                     "Recuerda escuchar a tu cuerpo y ajustar la intensidad según tus\n"
-                                     "necesidades y comodidad. ¡Estamos aquí para apoyarte en tu \n"
-                                     "camino hacia un estilo de vida saludable!")
-                self.ventanaDialogo.exec_()
-
-
-            self.mensaje.setText("Se ha registrado correctamente.")
-
-            # Hacemos que la ventana de dialogo se vea:
+        if ((self.contadorInt > self.contadorPri and self.contadorInt > self.contadorAv)
+                or (self.contadorAv == self.contadorPri == self.contadorInt)):
+            self.mensaje.setText("Te recomendamos iniciar tu entrenamiento en el nivel INTERMEDIO.\n"
+                                 "Recuerda escuchar a tu cuerpo y ajustar la intensidad según tus\n"
+                                 "necesidades y comodidad. ¡Estamos aquí para apoyarte en tu \n"
+                                 "camino hacia un estilo de vida saludable!")
             self.ventanaDialogo.exec_()
+            self.nivel = 'Intermedio'
+            self.file = open('datos/users.txt', 'ab')
+            self.file.write(bytes(
+                self.imc + ";"
+                + self.nivel + "\n"
+                , encoding='UTF-8'))
+            self.file.close()
 
-            self.hide()
-            self.ventanaAnterior.show()
+            self.file = open('datos/users.txt', 'rb')
+            while self.file:
+                linea = self.file.readline().decode('UTF-8')
+                if linea == '':
+                    break
+            self.file.close()
+
+        if (self.contadorAv > self.contadorPri and self.contadorAv > self.contadorInt):
+            self.mensaje.setText("Te recomendamos iniciar tu entrenamiento en el nivel AVANZADO.\n"
+                                 "Recuerda escuchar a tu cuerpo y ajustar la intensidad según tus\n"
+                                 "necesidades y comodidad. ¡Estamos aquí para apoyarte en tu \n"
+                                 "camino hacia un estilo de vida saludable!")
+            self.ventanaDialogo.exec_()
+            self.nivel = 'Avanzado'
+            self.file = open('datos/users.txt', 'ab')
+            self.file.write(bytes(
+                self.imc + ";"
+                + self.nivel + "\n"
+                , encoding='UTF-8'))
+            self.file.close()
+
+            self.file = open('datos/users.txt', 'rb')
+            while self.file:
+                linea = self.file.readline().decode('UTF-8')
+                print(linea)
+                if linea == '':
+                    break
+            self.file.close()
+
+
+        self.mensaje.setText("Se ha registrado correctamente.")
+
+        # Hacemos que la ventana de dialogo se vea:
+        self.ventanaDialogo.exec_()
+
+        self.hide()
+        self.ventanaAnterior.show()
 

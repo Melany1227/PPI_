@@ -9,7 +9,9 @@ class Usuarios:
                 weight_edit,
                 nivel_resp,
                 plan_resp,
-                disease_resp):
+                disease_resp,
+                imc,
+                nivel):
 
         self.fecha = fecha
         self.fullname_edit = fullname_edit
@@ -21,6 +23,8 @@ class Usuarios:
         self.nivel_resp = nivel_resp
         self.plan_resp = plan_resp
         self.disease_resp = disease_resp
+        self.imc_edit = imc
+        self.nivel_edit = nivel
 
     def __str__(self):
         return f"Usuario: {self.user_edit} Contraseña: {self.password2_edit}"

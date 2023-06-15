@@ -751,7 +751,7 @@ class Ventana7_6(QMainWindow):
                                          "\n hacia los hombros girando las palmas hacia arriba. Mantén"
                                          "\n la contracción en la parte superior durante un segundo."
                                          "\n ,Baja lentamente las mancuernas"
-                                         "\n controladamente, hasta la posición inicial."), 1, 2, 1, 7)
+                                         "\n controladamente, hasta la posición inicial."), 1, 2, 1, 6)
 
 
 
@@ -760,7 +760,7 @@ class Ventana7_6(QMainWindow):
         self.cuadricula.addWidget(QLabel(" Selecciona el nivel de dificultad"
                                          "\n sugerido"
                                          "\n Repite el movimiento."
-                                         "\n(Puedes escoger cualquier nivel)"), 2, 2, 1, 7)
+                                         "\n(Puedes escoger cualquier nivel)"), 2, 2, 1, 6)
 
 
 

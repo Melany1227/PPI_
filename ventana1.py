@@ -151,8 +151,9 @@ class LoginWindow(QMainWindow):
                     lista[6],
                     lista[7],
                     lista[8],
-                    lista[9]
-
+                    lista[9],
+                    lista[10],
+                    lista[11]
                 )
                 usuario.append(u)
             self.file.close()

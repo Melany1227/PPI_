@@ -5,9 +5,11 @@ from PyQt5.QtGui import QPixmap, QIcon
 from PyQt5.QtWidgets import QMainWindow, QDesktopWidget, QWidget, QVBoxLayout, QGridLayout, QLabel, QPushButton, \
     QHBoxLayout
 
+from acercade import Ventana10
 from datos import Ventana6
 from ejercicios import Ventana5
 from interfaz_perfil import Ventana8
+from interfaz_plan import Ventana9
 
 
 class Ventana3 (QMainWindow):
@@ -64,45 +66,42 @@ class Ventana3 (QMainWindow):
         self.imagen.setPixmap(self.pixmap)
         self.cuadricula.addWidget(self.imagen, 0, 1, 6, 1)
 
-        self.botondatos_estadisticas = QPushButton("Datos y Estadisticas")
-        self.botondatos_estadisticas.setFixedWidth(250)
-        self.botondatos_estadisticas.setStyleSheet("color: white; font-size: 18px; font-family: Poppins; padding: 10px; border-radius:10px; "
-                                        "border: 1px solid #FFFFFF; width:10px; height:20px;")
-        self.botondatos_estadisticas.clicked.connect(self.datos_estadisticas)
-        self.cuadricula.addWidget(self.botondatos_estadisticas, 2, 0)
 
         self.botonejercicio = QPushButton("Ejercicios")
         self.botonejercicio.setFixedWidth(250)
         self.botonejercicio.setStyleSheet("color: white; font-size: 18px; font-family: Poppins; padding: 10px; border-radius:10px; "
                                         "border: 1px solid #FFFFFF; width:10px; height:20px;")
         self.botonejercicio.clicked.connect(self.ejercicios)
-        self.cuadricula.addWidget(self.botonejercicio, 3, 0)
+        self.cuadricula.addWidget(self.botonejercicio, 2, 0)
 
         self.botonacercade = QPushButton("Acerca de")
         self.botonacercade.setFixedWidth(250)
         self.botonacercade.setStyleSheet("color: white; font-size: 18px; font-family: Poppins; padding: 10px; border-radius:10px; "
                                         "border: 1px solid #FFFFFF; width:10px; height:20px;")
         self.botonacercade.clicked.connect(self.acercade)
-        self.cuadricula.addWidget(self.botonacercade, 4, 0)
+        self.cuadricula.addWidget(self.botonacercade, 3, 0)
 
         self.botonVolver = QPushButton("Volver")
         self.botonVolver.setFixedWidth(250)
         self.botonVolver.setStyleSheet("color: white; font-size: 18px; font-family: Poppins; padding: 10px; border-radius:10px; "
                                         "border: 1px solid #FFFFFF; width:10px; height:20px;")
         self.botonVolver.clicked.connect(self.volver)
-        self.cuadricula.addWidget(self.botonVolver, 5, 0)
+        self.cuadricula.addWidget(self.botonVolver, 4, 0)
 
         self.botoncerrarsesion = QPushButton("Cerrar sesión")
         self.botoncerrarsesion.setFixedWidth(250)
         self.botoncerrarsesion.setStyleSheet("color: white; font-size: 18px; font-family: Poppins; padding: 10px; border-radius:10px; "
                                         "border: 1px solid #FFFFFF; width:10px; height:20px;")
         self.botoncerrarsesion.clicked.connect(self.cerrarsesion)
-        self.cuadricula.addWidget(self.botoncerrarsesion, 6, 0)
+        self.cuadricula.addWidget(self.botoncerrarsesion, 5, 0)
 
 
 
     def plan(self):
-        pass
+        self.interfaz_plan = Ventana9(self, self.nombreUsuario)
+        self.interfaz_plan.show()
+        self.hide()
+
     def datos_estadisticas(self):
         self.datos = Ventana6(self)
         self.datos.show()
@@ -114,7 +113,9 @@ class Ventana3 (QMainWindow):
         self.hide()
 
     def acercade(self):
-        pass
+        self.acercade = Ventana10 (self, self.nombreUsuario)
+        self.acercade.show()
+        self.hide()
 
     def volver(self):
         self.hide()
